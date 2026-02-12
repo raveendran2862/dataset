@@ -1,11 +1,16 @@
 import pandas as pd
-import numpy as np
+from sklearn.linear_model import LinearRegression
 
+# Load dataset
+df = pd.read_csv("data.csv")
 
-data = {"Name":["Sakthi","yuvan","vinesh","Hari"],
-	"Age":[21,22,23,24],
-	"Gender":["M","M","M","M"]}
+# Prepare features
+X = df[["feature1", "feature2"]]
+y = df["target"]
 
+# Train model
+model = LinearRegression()
+model.fit(X, y)
 
-df = pd.DataFrame(data)
-print(df)
+print("Model trained successfully")
+
